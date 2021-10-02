@@ -16,7 +16,7 @@ class Projects extends DataModel {
     this.errors = []
 
     let isEmpty = Object.keys(obj).filter(
-      (key) => obj[key] === null || obj[key] === ""
+      (key) => obj[key] === null || obj[key] === "" || obj[key] === undefined
     )
 
     let isAuthorArray = Array.isArray(obj.authors)
