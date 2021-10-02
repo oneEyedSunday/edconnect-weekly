@@ -5,7 +5,8 @@ class Project {
     this.id = id
     this.name = name
     this.abstract = abstract
-    this.authors = tags
+    this.authors = authors
+    this.tags = tags
     this.createdBy = createdBy
   }
 }
