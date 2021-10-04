@@ -23,7 +23,7 @@ class Projects extends DataModel {
     let isTagArray = Array.isArray(obj.tags)
 
     if (isEmpty.length > 0) {
-      isEmpty.forEach((item) => this.errors.push(item + " should not be empty"))
+      isEmpty.forEach((item) => this.errors.push(`${item} should not be empty`))
     }
 
     if (!isAuthorArray) {
@@ -37,7 +37,7 @@ class Projects extends DataModel {
     if (this.errors.length === 0) {
       return true
     } else {
-      return false
+      return this.errors
     }
   }
 }
