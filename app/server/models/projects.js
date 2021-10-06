@@ -31,6 +31,7 @@ class Projects extends DataModel {
 
     if (isEmpty.length > 0) {
       isEmpty.forEach((item) => this.errors.push(`${item} should not be empty`))
+      return this.errors
     }
 
     if (this.errors.length === 0) {
