@@ -19,10 +19,12 @@ class Projects extends DataModel {
 
     if (!isTagArray) {
       this.errors.push("Tags should be an array")
+      return this.errors
     }
 
     if (!isAuthorArray) {
       this.errors.push("Authors should be an array")
+      return this.errors
     }
 
     let isEmpty = Object.keys(obj).filter(
