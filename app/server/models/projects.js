@@ -24,14 +24,14 @@ class Projects extends DataModel {
 
     if (isEmpty.length > 0) {
       isEmpty.forEach((item) => this.errors.push(item + " should not be empty"))
-    }
+    } else {
+      if (!isAuthorArray) {
+        this.errors.push("Authors should be an array")
+      }
 
-    if (!isAuthorArray) {
-      this.errors.push("Authors should be an array")
-    }
-
-    if (!isTagArray) {
-      this.errors.push("Tags should be an array")
+      if (!isTagArray) {
+        this.errors.push("Tags should be an array")
+      }
     }
 
     if (this.errors.length === 0) {
