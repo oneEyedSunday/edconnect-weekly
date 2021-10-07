@@ -14,26 +14,24 @@ class Project {
 class Projects extends DataModel {
   validate(obj) {
     this.errors = []
-    let isAuthorArray = Array.isArray(obj.authors)
-    let isTagArray = Array.isArray(obj.tags)
-
-    if (!isTagArray) {
-      this.errors.push("Tags should be an array")
-      return this.errors
-    }
-
-    if (!isAuthorArray) {
-      this.errors.push("Authors should be an array")
-      return this.errors
-    }
 
     let isEmpty = Object.keys(obj).filter(
       (key) => obj[key] === null || obj[key] === "" || obj[key] === undefined
     )
 
+    let isAuthorArray = Array.isArray(obj.authors)
+    let isTagArray = Array.isArray(obj.tags)
+
     if (isEmpty.length > 0) {
-      isEmpty.forEach((item) => this.errors.push(`${item} should not be empty`))
-      return this.errors
+      isEmpty.forEach((item) => this.errors.push(item + " should not be empty"))
+    }
+
+    if (!isAuthorArray) {
+      this.errors.push("Authors should be an array")
+    }
+
+    if (!isTagArray) {
+      this.errors.push("Tags should be an array")
     }
 
     if (this.errors.length === 0) {
